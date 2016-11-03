@@ -1,5 +1,12 @@
 # Initiate the rosbag for capture data from any ROS topic, when the gpio pin state on Pi is changed #
 
+####Add build information for camera_record.cpp in CMakeLists.txt####
+
+##CMakeLists.txt##
+add_executable(camera_record src/camera_record.cpp)
+target_link_libraries(camera_record ${catkin_LIBRARIES})
+add_dependencies(camera_record Pi_Camera_generate_messages_cpp)
+
 ##pi_gpio.py##
 
 Controls the Raspberry Pi GPIO pin and publishes the message to image_record subscriber. 
